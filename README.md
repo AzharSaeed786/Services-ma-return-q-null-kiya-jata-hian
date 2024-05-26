@@ -1,1 +1,4 @@
 # Services-ma-return-q-null-kiya-jata-hian
+onBind() method mein null return kiya gaya hai kyunki humara service bound nahi hai. Yani ki, humara service kisi aur component se communication ke liye available nahi hai. Agar aapka service kisi client component se communicate karne ke liye available hai, jaise ki Activity ya Fragment, toh aapko onBind() method mein ek IBinder instance return karna hoga jo communication ke liye use kiya ja sakta hai.
+
+Yeh IBinder interface service ke client ko ek reference provide karta hai, jisse client service ke methods aur functionality ko access kar sakta hai. Lekin agar aapka service sirf background mein kuch task execute kar raha hai aur kisi client se interact nahi kar raha hai, toh aap onBind() method mein null return kar sakte hain, indicating ki service unbound hai.
